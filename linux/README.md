@@ -4,8 +4,9 @@
 
 
 | Package Name                                  | Purpose              |
-| ----------------------------------------------- | ---------------------- |
+| --------------------------------------------- | -------------------- |
 | [Hyprland](https://hyprland.org/)             | Window Manager       |
+| [Kitty](https://sw.kovidgoyal.net/kitty/)     | Terminal Emulator    |
 | [Rofi-Wayland](https://github.com/lbonn/rofi) | Application Launcher |
 | [Eww](https://github.com/elkowar/eww)         | Statusbar            |
 
@@ -77,10 +78,13 @@ Then, run the `cargo build` command again.
 
 Remember to make your `./eww` file an executable after building.
 
-#### Rofi-Wayland
+#### DNF packages
 
-This application is in the `dnf` package manager so you can just run
+**Application list:** `kitty`, `rofi` (wayland version)
+
+These applications are in the `dnf` package manager so you can just run
 
 ```
-sudo dnf install rofi-wayland
+sudo dnf install kitty \
+                 rofi-wayland
 ```
