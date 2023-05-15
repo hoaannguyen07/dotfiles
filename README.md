@@ -1,100 +1,56 @@
-# Dotfiles
+# My Dotfiles
 
-Linux & MacOS dotfiles
+This repository contains my personal dotfiles. I use GNU Stow to manage my dotfiles, so you will need to install GNU Stow in order to use my dotfiles in your environment.
 
-## Installation Guide
+This repository contains my personal dotfiles. The structure of the folders in this repository matches with how the path of the configuration files should look like from the `$HOME` directory. For example, the `kitty` configuration file (`kitty.conf`) should be located at `$HOME/.config/kitty/kitty.conf` in order for kitty to use the config file. Thus, in the repository, `kitty.conf` file is located at `kitty/.config/kitty/kitty.config`. When stowing `kitty` into the targeted `$HOME` directory, it will be at the desired location of `$HOME/.config/kitty/kitty.conf`.
 
-### Clone repository:
+# Installation
 
-```
-git clone https://github.com/hoaannguyen07/dotfiles.git
-```
+To install GNU Stow, run the following command:
 
-### `cd` into the repository you just cloned (i.e. `cd dotfiles`)
-
-### Use the configs you want in 1 of 2 ways
-
-***The following installation assumes that you are cloning this repo into your `$HOME` directory and keeping the same name (`dotfiles`). Read the notes section to see how to structure your commands if you didn't follow this assumption***
-
-#### Copying:
-
-Copy the config files/folders you want into your `~/.config/` folder.
-
-**Note:** remember to put it in the correct subfolders of `~/.config/` (i.e. if you want to use the `hyprlandd.conf` file from the repo's `linux/.config/hypr/hyprlandd.conf`, copy it into `~/.config/hypr/`)
-
-#### Symlink:
-
-##### MacOS
-
-1. If you want to `symlink` the **whole** config folder, use the following command:
+### Ubuntu
 
 ```
-ln -s /home/$USER/dotfiles/macos/.config/* ~/.config/
+sudo apt install stow
 ```
 
-<details>
-    <summary> Note: </summary>
-If you did not follow the assumption, use the following command structure to write the command for your system
+### Fedora
 
 ```
-ln -s $DOTFILE-ABS-PATH/macos/.config/* ~/.config/
+sudo dnf install stow
 ```
 
-where `$DOTFILE-ABS-PATH` = absolute path to my dotfile repo that you just cloned.
+# Usage
 
-</details>
+To use my dotfiles, follow these steps:
 
-2. If you want to `symlink` the **specific** config folder, use the following command:
+1. Clone the repository to your local machine
 
-```
-ln -s /home/$USER/dotfiles/macos/.config/some-config ~/.config/
-```
+    ```
+    git clone https://github.com/hoaannguyen07/dotfiles
+    ```
 
-<details>
-    <summary> Note: </summary>
-If you did not follow the assumption, use the following command structure to write the command for your system
+2. Run the following command to create symlinks to my dotfiles in your home directory:
 
-```
-ln -s $DOTFILE-ABS-PATH/macos/.config/some-config ~/.config/
-```
+    ```
+    stow FolderName --target=$HOME
+    ```
+    Replace `FolderName` with the name of the folder you want to stow. If you want to stow everything in the directory, use `*/`. Stow will automatically know to avoid README files.
 
-where `$DOTFILE-ABS-PATH` = absolute path to my dotfile repo that you just cloned.
+3. Open your terminal and source your `.bashrc` or `.zshrc` file:
 
-</details>
+    ```
+    source $HOME/.bashrc
+    ```
+    or
+    ```
+    source $HOME/.zshrc
+    ```
 
-##### Linux
+    Your dotfiles should now be loaded in your environment.
 
-1. If you want to `symlink` the **whole** config folder, use the following command:
+<!-- # Troubleshooting
 
-```
-ln -s /home/$USER/dotfiles/linux/.config/* ~/.config/
-```
-<details>
-    <summary> Note </summary>
-If you did not follow the assumption, use the following command structure to write the command for your system
+If you have any problems using my dotfiles, please feel free to open an issue on this repository.
 
-```
-ln -s $DOTFILE-ABS-PATH/linux/.config/* ~/.config/
-```
-
-where `$DOTFILE-ABS-PATH` = absolute path to my dotfile repo that you just cloned.
-
-</details>
-
-2. If you want to `symlink` the **specific** config folder, use the following command:
-
-```
-ln -s /home/$USER/dotfiles/linux/.config/some-config ~/.config/
-```
-
-<details>
-    <summary> Note </summary>
-If you did not follow the assumption, use the following command structure to write the command for your system
-
-```
-ln -s $DOTFILE-ABS-PATH/linux/.config/some-config ~/.config/
-```
-
-where `$DOTFILE-ABS-PATH` = absolute path to my dotfile repo that you just cloned.
-
-</details>
+I hope this helps! -->
